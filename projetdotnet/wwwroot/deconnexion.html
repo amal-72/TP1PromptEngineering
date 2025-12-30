@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déconnexion - E-Commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .btn {
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-danger {
+            background: #e74c3c;
+        }
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        .message {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 4px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔓 Déconnexion</h1>
+        <div id="message"></div>
+        <button class="btn btn-danger" onclick="deconnecter()">Se déconnecter et vider le token</button>
+        <br><br>
+        <a href="index.html" class="btn">Retour à l'accueil</a>
+    </div>
+
+    <script>
+        function deconnecter() {
+            // Vider le token
+            localStorage.removeItem('token');
+            
+            // Afficher un message
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = '<div class="message">✅ Token supprimé ! Vous pouvez maintenant vous reconnecter.</div>';
+            
+            // Rediriger après 2 secondes
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        }
+
+        // Vérifier si un token existe
+        window.onload = function() {
+            const token = localStorage.getItem('token');
+            if (token) {
+                document.getElementById('message').innerHTML = 
+                    '<div class="message">ℹ️ Un token est présent. Cliquez sur le bouton pour le supprimer.</div>';
+            } else {
+                document.getElementById('message').innerHTML = 
+                    '<div class="message">ℹ️ Aucun token trouvé. Vous êtes déjà déconnecté.</div>';
+            }
+        };
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits - E-Commerce</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">🛒 E-Commerce</h1>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Accueil</a>
+                <a href="products.html" class="active">Produits</a>
+                <a href="cart.html" id="cartLink" style="display: none;">Panier <span id="cartCount" class="badge"></span></a>
+                <a href="orders.html" id="ordersLink" style="display: none;">Mes Commandes</a>
+                <a href="admin.html" id="adminLink" style="display: none;">Administration</a>
+                <button id="logoutBtn" style="display: none;" class="btn btn-secondary">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Nos Produits</h2>
+        <div id="productsGrid" class="products-grid">
+            <!-- Les produits seront chargés ici -->
+        </div>
+        <div id="loading" class="loading">Chargement...</div>
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
+
